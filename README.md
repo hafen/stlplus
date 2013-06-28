@@ -16,6 +16,13 @@ For experimental inference, prediction, and variance reduction at endpoints, see
 - [Cleveland, R. B., Cleveland, W. S., McRae, J. E., & Terpenning, I. (1990). STL: A seasonal-trend decomposition procedure based on loess. *Journal of Official Statistics*, 6(1), 3-73.](http://cs.wellesley.edu/~cs315/Papers/stl%20statistical%20model.pdf)
 - [Hafen, R. P. "Local regression models: Advancements, applications, and new methods." (2010).](http://search.proquest.com/docview/749923640)
 
+## Installation
+
+```s
+library(devtools)
+install_github("datadr", "hafen")
+```
+
 ## License
 
 This software is released under the BSD license.  Please read the [license](https://github.com/hafen/stl2/blob/master/LICENSE.md) document.

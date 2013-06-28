@@ -1,3 +1,4 @@
+useDynLib(stl2)
 export(fc)
 S3method(fitted, stl)
 S3method(fitted, stl2)

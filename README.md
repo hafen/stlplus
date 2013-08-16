@@ -1,6 +1,6 @@
 # STL2: Seasonal Trend Decomposition using Loess
 
-This package contains enhancements to the `stl` implementation that comes with base R.  It was written during graduate work at Purdue University and no development has occurred while I have been at PNNL.  I am making it public here because I never got around to putting it on CRAN.
+This package contains enhancements to the `stl` implementation that comes with base R.  I am making it public here because I never got around to putting it on CRAN.
 
 Here are some of the added features over `stl`:
 

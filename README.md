@@ -20,7 +20,7 @@ For experimental inference, prediction, and variance reduction at endpoints, see
 
 ```s
 library(devtools)
-install_github("datadr", "hafen")
+install_github("stl2", "hafen")
 ```
 
 ## License

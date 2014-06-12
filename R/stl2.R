@@ -12,9 +12,9 @@
 # outer <- 1; inner <- 1; details <- TRUE; robust <- FALSE
 # l.degree <- t.degree
 
-stl2 <- function(x, t=NULL, n.p, s.window, s.degree=1, t.window=NULL, t.degree=1, fc.window=NULL, fc.degree=NULL, fc.name=NULL, l.window=NULL, l.degree=t.degree, s.jump=ceiling(s.window/10), t.jump=ceiling(t.window/10), l.jump=ceiling(l.window/10), fc.jump=NULL, critfreq=0.05, s.blend=0, t.blend=0, l.blend=t.blend, fc.blend=NULL, inner=2, outer=1, sub.labels=NULL, sub.start=1, details=FALSE, ...) UseMethod("stl2")
+stl2 <- function(x, t=NULL, n.p, s.window, s.degree=1, t.window=NULL, t.degree=1, fc.window=NULL, fc.degree=NULL, fc.name=NULL, l.window=NULL, l.degree=t.degree, s.jump=ceiling(s.window/10), t.jump=ceiling(t.window/10), l.jump=ceiling(l.window/10), fc.jump=NULL, critfreq=0.05, s.blend=0, t.blend=0, l.blend=t.blend, fc.blend=NULL, inner=2, outer=1, sub.labels=NULL, sub.start=1, zero.weight=1e-6, details=FALSE, ...) UseMethod("stl2")
 
-stl2.ts <- function(x, t=as.numeric(time(x)), n.p=frequency(x), s.window, s.degree=1, t.window=NULL, t.degree=1, fc.window=NULL, fc.degree=NULL, fc.name=NULL, l.window=NULL, l.degree=t.degree, s.jump=ceiling(s.window/10), t.jump=ceiling(t.window/10), l.jump=ceiling(l.window/10), fc.jump=NULL, critfreq=0.05, s.blend=0, t.blend=0, l.blend=t.blend, fc.blend=NULL, inner=2, outer=1, sub.labels=NULL, sub.start=1, details=FALSE, ...) {
+stl2.ts <- function(x, t=as.numeric(time(x)), n.p=frequency(x), s.window, s.degree=1, t.window=NULL, t.degree=1, fc.window=NULL, fc.degree=NULL, fc.name=NULL, l.window=NULL, l.degree=t.degree, s.jump=ceiling(s.window/10), t.jump=ceiling(t.window/10), l.jump=ceiling(l.window/10), fc.jump=NULL, critfreq=0.05, s.blend=0, t.blend=0, l.blend=t.blend, fc.blend=NULL, inner=2, outer=1, sub.labels=NULL, sub.start=1, zero.weight=1e-6, details=FALSE, ...) {
 
    if (is.matrix(x)) 
        stop("only univariate series are allowed")
@@ -38,7 +38,7 @@ stl2.zoo <- function(...) {
 
 
 
-stl2.default <- function(x, t=NULL, n.p, s.window, s.degree=1, t.window=NULL, t.degree=1, fc.window=NULL, fc.degree=NULL, fc.name=NULL, l.window=NULL, l.degree=t.degree, s.jump=ceiling(s.window/10), t.jump=ceiling(t.window/10), l.jump=ceiling(l.window/10), fc.jump=NULL, critfreq=0.05, s.blend=0, t.blend=0, l.blend=t.blend, fc.blend=NULL, inner=2, outer=1, sub.labels=NULL, sub.start=1, details=FALSE, ...) {
+stl2.default <- function(x, t=NULL, n.p, s.window, s.degree=1, t.window=NULL, t.degree=1, fc.window=NULL, fc.degree=NULL, fc.name=NULL, l.window=NULL, l.degree=t.degree, s.jump=ceiling(s.window/10), t.jump=ceiling(t.window/10), l.jump=ceiling(l.window/10), fc.jump=NULL, critfreq=0.05, s.blend=0, t.blend=0, l.blend=t.blend, fc.blend=NULL, inner=2, outer=1, sub.labels=NULL, sub.start=1, zero.weight=1e-6, details=FALSE, ...) {
 
    if(missing(n.p)) stop("must specify periodicity of seasonal (either explicitly or through a time series object)")
 	n.p <- as.integer(n.p)
@@ -277,6 +277,7 @@ for(o_iter in 1:outer) {
       w <- (1 - (R.abs / h)^2)^2
       w[R.abs <= h1] <- 1
       w[R.abs >= h9] <- 0
+      w[w == 0] <- zero.weight
       w[is.na(w)] <- 1
    }
 }

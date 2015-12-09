@@ -19,7 +19,7 @@ For (very) experimental inference, prediction, and variance reduction at endpoin
 ## References
 
 - [Cleveland, R. B., Cleveland, W. S., McRae, J. E., & Terpenning, I. (1990). STL: A seasonal-trend decomposition procedure based on loess. *Journal of Official Statistics*, 6(1), 3-73.](http://cs.wellesley.edu/~cs315/Papers/stl%20statistical%20model.pdf)
-- [Hafen, R. P. "Local regression models: Advancements, applications, and new methods." (2010).](http://search.proquest.com/docview/749923640)
+- [Hafen, R. P. "Local regression models: Advancements, applications, and new methods." (2010).](http://ml.stat.purdue.edu/hafen/preprints/Hafen_thesis.pdf)
 
 ## Installation
 

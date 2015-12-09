@@ -43,7 +43,6 @@
 #' @example man-roxygen/ex-stlplus.R
 #' @export
 #' @rdname stlplus
-#' @useDynLib stlplus
 stlplus <- function(x, t = NULL, n.p, s.window, s.degree = 1,
   t.window = NULL, t.degree = 1,
   fc.window = NULL, fc.degree = NULL, fc.name = NULL,
@@ -301,14 +300,14 @@ stlplus.default <- function(x, t = NULL, n.p, s.window, s.degree = 1,
           tmps <- .loess_stlplus(y = cycleSub, span = s.window, degree = s.degree,
             m = cs.ev, weights = w[cycleSubIndices == i], blend = s.blend,
             jump = s.jump,  at = c(0:(cycleSub.length + 1)))
-          C[c(cs1, cycleSubIndices, cs2)==i] <- tmps
+          C[c(cs1, cycleSubIndices, cs2) == i] <- tmps
           # approx(x = cs.ev, y = tmps, xout = c(0:(cycleSub.length + 1)))$y
         }
       }
 
       # Step 3: Low-pass filtering of collection of all the cycle-subseries
       # moving averages
-      ma3 <- .ma(C, n.p)
+      ma3 <- c_ma(C, n.p)
 
       l.ev <- seq(1, n, by = l.jump)
       if(tail(l.ev, 1) != n) l.ev <- c(l.ev, n)

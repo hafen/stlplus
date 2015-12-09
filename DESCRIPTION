@@ -14,9 +14,11 @@ NeedsCompilation: no
 Imports:
     lattice,
     yaImpute,
-    stats
+    stats,
+    Rcpp
 Suggests:
     testthat
+LinkingTo: Rcpp
 License: BSD_3_clause + file LICENSE
 URL: https://github.com/stlplus
 Note: This is experimental software distributed free of charge and

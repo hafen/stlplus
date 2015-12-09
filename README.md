@@ -7,6 +7,7 @@ Here are some of the added features over `stl`:
 - Can handle NA values
 - Higher order loess smoothing (more than just local constant and linear)
 - Automated parameter choices for local quadratic
+- Frequency component smoothing beyond seasonal and trend
 - Plot methods for diagnostics
 
 For experimental inference, prediction, and variance reduction at endpoints, see the [operator](http://github.com/hafen/operator) package.

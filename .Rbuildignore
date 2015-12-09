@@ -1,0 +1,14 @@
+man-roxygen
+\.git
+^\.travis\.yml$
+\.DS_Store
+..Rcheck
+LICENSE\.md
+NEWS\.md
+^_ignore$
+\.sublime\-
+sftp-config.json
+.Rproj
+^docs/
+.tar.gz
+\.Rapp\.history

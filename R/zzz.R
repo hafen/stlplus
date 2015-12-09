@@ -1,3 +1,3 @@
-.onload <- function(lib, pkg) {
-  library.dynam("stlplus", pkg, lib)
+.First.Lib <- function(libname, pkgname) {
+  library.dynam("stlplus", pkgname, libname)
 }

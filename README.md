@@ -12,7 +12,7 @@ Here are some of the added features over `stl()`:
 - Frequency component smoothing beyond seasonal and trend
 - Plot methods for diagnostics
 
-For experimental inference, prediction, and variance reduction at endpoints, see the [operator](http://github.com/hafen/operator) package.
+For (very) experimental inference, prediction, and variance reduction at endpoints, see the [operator](http://github.com/hafen/operator) package.
 
 ## References
 

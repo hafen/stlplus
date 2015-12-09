@@ -1,6 +1,6 @@
 # stlplus: Seasonal Trend Decomposition using Loess
 
-This package contains enhancements to the `stl` implementation that comes with base R.  I am making it public here because I never got around to putting it on CRAN.
+This package contains enhancements to the `stl` implementation that comes with base R.
 
 Here are some of the added features over `stl`:
 
@@ -20,7 +20,7 @@ For experimental inference, prediction, and variance reduction at endpoints, see
 ## Installation
 
 ```s
-devtools::install_github("stlplus", "hafen")
+devtools::install_github("hafen/stlplus")
 ```
 
 ## License

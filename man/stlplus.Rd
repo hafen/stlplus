@@ -124,7 +124,7 @@ y[201:224] <- NA
 y_stl <- stlplus(y, l.window = 13, t.window = 19, s.window = 35,
   s.degree = 1, sub.labels = substr(month.name, 1, 3))
 
-plot(y_stl, ylab = "CO2 Concentration (ppm)", xlab = "Time (years)")
+plot(y_stl, ylab = "CO2 Concentration (ppm)", xlab = "Time (years)", type = c("l", "g"))
 plot_seasonal(y_stl)
 plot_trend(y_stl)
 plot_cycle(y_stl)

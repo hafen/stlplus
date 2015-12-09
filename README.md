@@ -1,8 +1,10 @@
-# stlplus: Seasonal Trend Decomposition using Loess
+## stlplus
 
-This package contains enhancements to the `stl` implementation that comes with base R.
+![png](https://cloud.githubusercontent.com/assets/1275592/11673681/b7fce548-9dcf-11e5-8cd2-f3311b501ab9.png)
 
-Here are some of the added features over `stl`:
+This package contains enhancements to the Seasonal Trend Decomposition using Loess(STL) implementation that comes with base R, `stl()`.
+
+Here are some of the added features over `stl()`:
 
 - Can handle NA values
 - Higher order loess smoothing (more than just local constant and linear)

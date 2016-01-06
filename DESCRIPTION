@@ -20,7 +20,8 @@ Suggests:
     testthat
 LinkingTo: Rcpp
 License: BSD_3_clause + file LICENSE
-URL: https://github.com/stlplus
+URL: https://github.com/hafen/stlplus
+BugReports: https://github.com/hafen/stlplus/issues
 Note: This is experimental software distributed free of charge and
     comes with no warranty!  Exercise professional caution.
 RoxygenNote: 5.0.1

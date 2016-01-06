@@ -12,3 +12,4 @@ sftp-config.json
 ^docs/
 .tar.gz
 \.Rapp\.history
+cran-comments.md

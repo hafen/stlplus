@@ -10,15 +10,15 @@ test_that("direct loess matches R's loess", {
   # first with span < n
   r1 <- stlplus:::.loess_stlplus(x = x, y = y, span = 31, degree = 0)
   r2 <- predict(loess(y ~ x, degree = 0, span = 31 / n, control = dc))
-  expect_true(mean(abs(r1 - r2)) < 1.0e-15)
+  expect_true(mean(abs(r1 - r2)) < 1.0e-12)
 
   r1 <- stlplus:::.loess_stlplus(x = x, y = y, span = 31, degree = 1)
   r2 <- predict(loess(y ~ x, degree = 1, span = 31 / n, control = dc))
-  expect_true(mean(abs(r1 - r2)) < 1.0e-15)
+  expect_true(mean(abs(r1 - r2)) < 1.0e-12)
 
   r1 <- stlplus:::.loess_stlplus(x = x, y = y, span = 31, degree = 2)
   r2 <- predict(loess(y ~ x, degree = 2, span = 31 / n, control = dc))
-  expect_true(mean(abs(r1 - r2)) < 1.0e-15)
+  expect_true(mean(abs(r1 - r2)) < 1.0e-12)
 })
 
 test_that("stlplus matches stl", {

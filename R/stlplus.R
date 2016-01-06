@@ -41,6 +41,8 @@
 #' @note This is a complete re-implementation of the STL algorithm, with the loess part in C and the rest in R.  Moving a lot of the code to R makes it easier to experiment with the method at a very minimal speed cost.  Recoding in C instead of using R's built-in loess results in better performance, especially for larger series.
 #' @seealso \code{\link{plot.stlplus}} for plotting the components, \code{\link{getraw}}, \code{\link{seasonal}}, \code{\link{trend}}, \code{\link{remainder}} for accessing the components.
 #' @example man-roxygen/ex-stlplus.R
+#' @importFrom stats frequency loess median predict quantile weighted.mean time
+#' @importFrom utils head stack tail
 #' @export
 #' @rdname stlplus
 stlplus <- function(x, t = NULL, n.p, s.window, s.degree = 1,

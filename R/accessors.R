@@ -18,7 +18,6 @@
 #'
 #' plot(seasonal(co2.stl))
 #' @export
-#' @importFrom stats time
 #' @rdname accessors
 seasonal <- function(object) UseMethod("seasonal")
 

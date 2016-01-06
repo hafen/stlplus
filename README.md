@@ -1,6 +1,7 @@
 ## stlplus
 
 [![Build Status](https://travis-ci.org/hafen/stlplus.svg?branch=master)](https://travis-ci.org/hafen/stlplus)
+[![CRAN](http://www.r-pkg.org/badges/version/stlplus)](https://cran.r-project.org/web/packages/stlplus/index.html)
 
 ![png](https://cloud.githubusercontent.com/assets/1275592/11673681/b7fce548-9dcf-11e5-8cd2-f3311b501ab9.png)
 

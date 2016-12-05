@@ -25,6 +25,14 @@ For (very) experimental inference, prediction, and variance reduction at endpoin
 
 ## Installation
 
+CRAN:
+
+```s
+install.packages("stlplus")
+```
+
+Github:
+
 ```s
 devtools::install_github("hafen/stlplus")
 ```

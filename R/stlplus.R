@@ -78,7 +78,7 @@ stlplus.ts <- function(x, t = as.numeric(stats::time(x)), n.p = frequency(x),
   details = FALSE, ...) {
 
   if (is.matrix(x))
-     stop("only univariate series are allowed")
+    stop("only univariate series are allowed")
 
   if(missing(n.p)) n.p <- frequency(x)
   if(!is.null(t)) {
@@ -130,6 +130,8 @@ stlplus.default <- function(x, t = NULL, n.p, s.window, s.degree = 1,
   # family <- ifelse(robust, "symmetric", "gaussian")
 
   Y <- as.vector(x)
+  Y[is.infinite(Y)] <- NA
+  Y[is.nan(Y)] <- NA
   n <- length(Y)
   nextodd <- function(x) {
     x <- round(x)

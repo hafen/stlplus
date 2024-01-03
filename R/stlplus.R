@@ -130,8 +130,11 @@ stlplus.default <- function(x, t = NULL, n.p, s.window, s.degree = 1,
   # family <- ifelse(robust, "symmetric", "gaussian")
 
   Y <- as.vector(x)
-  Y[is.infinite(Y)] <- NA
-  Y[is.nan(Y)] <- NA
+  nan_idx <- which(is.nan(Y) | is.infinite(Y))
+  if (length(nan_idx) > 0) {
+    warning("NAs for infinite or NaN values introduced by coercion")
+    Y[nan_idx] <- NA
+  }
   n <- length(Y)
   nextodd <- function(x) {
     x <- round(x)

@@ -44,7 +44,7 @@
 
     # another approach
     a <- yaImpute::ann(ref = as.matrix(x2), target = as.matrix(m), tree.type = "kd",
-      k = span3, eps = 0, verbose = FALSE)$knnIndexDist[,1:span3]
+      k = span3, eps = 0, verbose = FALSE)$knnIndexDist[, 1:span3, drop = FALSE]
 
     l_idx <- apply(a, 1, min)
     r_idx <- apply(a, 1, max)

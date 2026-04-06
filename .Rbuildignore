@@ -1,8 +1,10 @@
 man-roxygen
 \.git
+^\.github$
 ^\.travis\.yml$
 \.DS_Store
 ..Rcheck
+^src/.*\.(o|so)$
 LICENSE\.md
 NEWS\.md
 ^_ignore$

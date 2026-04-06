@@ -5,7 +5,7 @@
 \title{Seasonal Diagnostic Plot for an stlplus Object}
 \usage{
 plot_seasonal(x, col = c("darkgray", "black"), lwd = 2, xlab = "Time",
-  ylab = "Centered Seasonal + Remainder", ...)
+  ylab = "Seasonal + Remainder\n(centered by seasonal mean)", ...)
 }
 \arguments{
 \item{x}{object of class \code{"stlplus"}.}
@@ -17,8 +17,9 @@ object of class \code{"trellis"}.
 }
 \description{
 Plots each cycle-subseries of the detrended data (or equivalently,
-seasonal plus remainder), with the mean subtracted.  The fitted seasonal
-component is plotted as a line through the points.
+seasonal plus remainder), centered by the mean seasonal component for each
+subseries. The fitted seasonal component is plotted as a line through the
+points.
 }
 \details{
 Helps decide how much of the variation in the data other than the trend should go into the seasonal component, and how much in the remainder.

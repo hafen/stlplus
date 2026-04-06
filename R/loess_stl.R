@@ -1,18 +1,17 @@
 #' @importFrom yaImpute ann
-#' @importFrom Rcpp sourceCpp
-#' @useDynLib stlplus
+#' @useDynLib stlplus, .registration = TRUE
 .loess_stlplus <- function(
   x = NULL,
   y,
   span,
   degree,
   weights = NULL,
-  m = c(1:length(y)),
+  m = c(seq_along(y)),
   y_idx = !is.na(y),
   noNA = all(y_idx),
   blend = 0,
   jump = ceiling(span / 10),
-  at = c(1:length(y))
+  at = c(seq_along(y))
 ) {
   nextodd <- function(x) {
     x <- round(x)
@@ -22,7 +21,7 @@
 
   n <- length(y[y_idx])
   if (is.null(x)) {
-    x <- c(1:length(y))
+    x <- c(seq_along(y))
   }
 
   if (is.null(weights)) {
@@ -126,11 +125,11 @@
     # left_interp <- at[bl_idx_interp]
     # right_interp <- at[br_idx_interp]
     l_idx2 <- l_idx[bl_idx | br_idx]
-    r_idx2 <- r_idx[bl_idx | br_idx]
+    # r_idx2 <- r_idx[bl_idx | br_idx]
     max_dist2 <- max_dist[bl_idx | br_idx]
 
     m2 <- c(left, right)
-    n_m2 <- length(m2)
+    # n_m2 <- length(m2)
 
     # speed this up later by only getting the loess smooth at the tails.
     # right now, a lot of unnecessary calculation is done at the interior

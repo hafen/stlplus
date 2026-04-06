@@ -406,38 +406,38 @@ stlplus.default <- function(
 
       # step 2: smoothing of cycle-subseries
       for (i in 1:n.p) {
-        cycleSub <- Y.detrended[cycleSubIndices == i]
-        subWeights <- w[cycleSubIndices == i]
-        cycleSub.length <- length(cycleSub)
+        cycle_sub <- Y.detrended[cycleSubIndices == i]
+        # sub_weights <- w[cycleSubIndices == i]
+        cycle_sub_length <- length(cycle_sub)
 
         cs1 <- head(cycleSubIndices, n.p)
         cs2 <- tail(cycleSubIndices, n.p)
 
-        notEnoughData <- length(cycleSub[!is.na(cycleSub)]) < s.window / 2
-        # if(notEnoughData || periodic) {
+        # not_enough_dat <- length(cycle_sub[!is.na(cycle_sub)]) < s.window / 2
+        # if(not_enough_dat || periodic) {
         if (periodic) {
           C[c(cs1, cycleSubIndices, cs2) == i] <- rep(
-            weighted.mean(cycleSub, w = w[cycleSubIndices == i], na.rm = TRUE),
-            cycleSub.length + 2
+            weighted.mean(cycle_sub, w = w[cycleSubIndices == i], na.rm = TRUE),
+            cycle_sub_length + 2
           )
         } else {
-          cs.ev <- seq(1, cycleSub.length, by = s.jump)
-          if (tail(cs.ev, 1) != cycleSub.length) {
-            cs.ev <- c(cs.ev, cycleSub.length)
+          cs.ev <- seq(1, cycle_sub_length, by = s.jump)
+          if (tail(cs.ev, 1) != cycle_sub_length) {
+            cs.ev <- c(cs.ev, cycle_sub_length)
           }
-          cs.ev <- c(0, cs.ev, cycleSub.length + 1)
+          cs.ev <- c(0, cs.ev, cycle_sub_length + 1)
           tmps <- .loess_stlplus(
-            y = cycleSub,
+            y = cycle_sub,
             span = s.window,
             degree = s.degree,
             m = cs.ev,
             weights = w[cycleSubIndices == i],
             blend = s.blend,
             jump = s.jump,
-            at = c(0:(cycleSub.length + 1))
+            at = c(0:(cycle_sub_length + 1))
           )
           C[c(cs1, cycleSubIndices, cs2) == i] <- tmps
-          # approx(x = cs.ev, y = tmps, xout = c(0:(cycleSub.length + 1)))$y
+          # approx(x = cs.ev, y = tmps, xout = c(0:(cycle_sub_length + 1)))$y
         }
       }
 

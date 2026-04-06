@@ -12,7 +12,6 @@ List c_loess(
   IntegerVector l_idx,   // index of left starting points
   NumericVector max_dist // distance between nn bounds for each point
 ) {
-  int span2, span3, offset;
   int i, j;
   double r, tmp1, tmp2;
 
@@ -31,15 +30,9 @@ List c_loess(
   // variables for storing determinant intermediate values
   double a, b, c, d, e, a1, b1, c1, a2, b2, c2, det;
 
-  span3 = span;
   if(span > n) {
     span = n;
   }
-
-  span2 = (span - 1) / 2;
-
-  // want to start storing results at index 0, corresponding to the lowest m
-  offset = m[0];
 
   // loop through all values of m
   for(i = 0; i < n_m; i++) {

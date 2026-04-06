@@ -1,6 +1,6 @@
 ## stlplus
 
-[![Build Status](https://travis-ci.org/hafen/stlplus.svg?branch=master)](https://travis-ci.org/hafen/stlplus)
+[![R-CMD-check](https://github.com/hafen/stlplus/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/hafen/stlplus/actions/workflows/R-CMD-check.yaml)
 [![CRAN](http://www.r-pkg.org/badges/version/stlplus)](https://cran.r-project.org/web/packages/stlplus/index.html)
 ![](http://cranlogs.r-pkg.org/badges/stlplus)
 

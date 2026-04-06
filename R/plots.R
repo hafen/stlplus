@@ -149,11 +149,11 @@ plot_cycle <- function(
   seas <- seasonal(x)
   t <- time.stlplus(x)
 
-  cycleSubIndices <- x$data$sub.labels
+  cycle_sub_idx <- x$data$sub.labels
 
   if (x$pars$periodic) {
     p <- lattice::xyplot(
-      seas ~ t | cycleSubIndices,
+      seas ~ t | cycle_sub_idx,
       layout = layout,
       type = "l",
       xlab = xlab,
@@ -162,7 +162,7 @@ plot_cycle <- function(
     )
   } else {
     p <- lattice::xyplot(
-      seas ~ t | cycleSubIndices,
+      seas ~ t | cycle_sub_idx,
       layout = layout,
       type = "l",
       panel = panel,
@@ -178,8 +178,9 @@ plot_cycle <- function(
 #' Seasonal Diagnostic Plot for an stlplus Object
 #'
 #' Plots each cycle-subseries of the detrended data (or equivalently,
-#' seasonal plus remainder), with the mean subtracted.  The fitted seasonal
-#' component is plotted as a line through the points.
+#' seasonal plus remainder), centered by the mean seasonal component for each
+#' subseries. The fitted seasonal component is plotted as a line through the
+#' points.
 #'
 #' @param x object of class \code{"stlplus"}.
 #' @param col,lwd,xlab,ylab,\ldots parameters to be passed to \code{xyplot()}.
@@ -194,7 +195,7 @@ plot_seasonal <- function(
   col = c("darkgray", "black"),
   lwd = 2,
   xlab = "Time",
-  ylab = "Centered Seasonal + Remainder",
+  ylab = "Seasonal + Remainder\n(centered by seasonal mean)",
   ...
 ) {
   dat <- by(
@@ -206,7 +207,7 @@ plot_seasonal <- function(
     ),
     list(x$data$sub.labels),
     function(dd) {
-      mn <- mean(dd$v1, na.rm = TRUE)
+      mn <- mean(dd$v2, na.rm = TRUE)
       data.frame(a = dd$v1 - mn, b = dd$v2 - mn, t = dd$t, sub.labels = dd$v3)
     }
   )
@@ -329,11 +330,11 @@ plot_trend <- function(
       x = time.stlplus(x),
       y = predict(
         loess(
-          remainder(x) ~ c(1:length(remainder(x))),
+          remainder(x) ~ c(seq_along(remainder(x))),
           span = span,
           weights = x$data$weights
         ),
-        newdata = c(1:length(remainder(x)))
+        newdata = c(seq_along(remainder(x)))
       ),
       type = "l",
       pan = "Remainder"

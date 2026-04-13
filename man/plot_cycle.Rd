@@ -4,10 +4,18 @@
 \alias{plot_cycle}
 \title{Cycle-Subseries Plot for an stlplus Object}
 \usage{
-plot_cycle(x, layout = c(x$pars$n.p, 1), col = "#0080ff", xlab = "Time",
-  ylab = "Seasonal", panel = function(x, y, ...) {    
-  lattice::panel.segments(x, rep(.midmean(y), length(x)), x, y, col = col) },
-  ...)
+plot_cycle(
+  x,
+  layout = c(x$pars$n.p, 1),
+  col = "#0080ff",
+  xlab = "Time",
+  ylab = "Seasonal",
+  panel = function(x, y, ...) {
+     lattice::panel.segments(x, rep(.midmean(y),
+    length(x)), x, y, col = col)
+ },
+  ...
+)
 }
 \arguments{
 \item{x}{object of class \code{"stlplus"}.}
@@ -27,4 +35,3 @@ R. B. Cleveland, W. S. Cleveland, J. E.  McRae, and I. Terpenning (1990) STL:  A
 \seealso{
 \code{\link{stlplus}}
 }
-

@@ -4,8 +4,15 @@
 \alias{plot_rembycycle}
 \title{Plot of Remainder Component by Cycle-Subseries}
 \usage{
-plot_rembycycle(x, col = "darkgray", locol = "black", lolwd = 2,
-  xlab = "Time", ylab = "Remainder", ...)
+plot_rembycycle(
+  x,
+  col = "darkgray",
+  locol = "black",
+  lolwd = 2,
+  xlab = "Time",
+  ylab = "Remainder",
+  ...
+)
 }
 \arguments{
 \item{x}{object of class \code{"stlplus"}.}
@@ -24,4 +31,3 @@ R. B. Cleveland, W. S. Cleveland, J. E.  McRae, and I. Terpenning (1990) STL:  A
 \seealso{
 \code{\link{stlplus}}
 }
-

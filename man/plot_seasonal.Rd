@@ -4,8 +4,14 @@
 \alias{plot_seasonal}
 \title{Seasonal Diagnostic Plot for an stlplus Object}
 \usage{
-plot_seasonal(x, col = c("darkgray", "black"), lwd = 2, xlab = "Time",
-  ylab = "Seasonal + Remainder\n(centered by seasonal mean)", ...)
+plot_seasonal(
+  x,
+  col = c("darkgray", "black"),
+  lwd = 2,
+  xlab = "Time",
+  ylab = "Seasonal + Remainder\\n(centered by seasonal mean)",
+  ...
+)
 }
 \arguments{
 \item{x}{object of class \code{"stlplus"}.}
@@ -30,4 +36,3 @@ R. B. Cleveland, W. S. Cleveland, J. E.  McRae, and I. Terpenning (1990) STL:  A
 \seealso{
 \code{\link{stlplus}}
 }
-

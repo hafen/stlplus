@@ -6,7 +6,6 @@ man-roxygen
 ..Rcheck
 ^src/.*\.(o|so)$
 LICENSE\.md
-NEWS\.md
 ^_ignore$
 \.sublime\-
 sftp-config.json
@@ -15,3 +14,4 @@ sftp-config.json
 .tar.gz
 \.Rapp\.history
 cran-comments.md
+^CRAN-SUBMISSION$

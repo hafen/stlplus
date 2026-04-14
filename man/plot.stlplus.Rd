@@ -4,9 +4,17 @@
 \alias{plot.stlplus}
 \title{Lattice plot of the raw, seasonal, trend, and remainder components}
 \usage{
-\method{plot}{stlplus}(x, scales = list(y = list(relation = "sliced")),
-  type = "l", as.table = TRUE, strip = FALSE, strip.left = TRUE,
-  between = list(y = 0.5), layout = NULL, ...)
+\method{plot}{stlplus}(
+  x,
+  scales = list(y = list(relation = "sliced")),
+  type = "l",
+  as.table = TRUE,
+  strip = FALSE,
+  strip.left = TRUE,
+  between = list(y = 0.5),
+  layout = NULL,
+  ...
+)
 }
 \arguments{
 \item{x}{object of class \code{"stlplus"}.}
@@ -25,4 +33,3 @@ R. B. Cleveland, W. S. Cleveland, J. E.  McRae, and I. Terpenning (1990) STL:  A
 \seealso{
 \code{\link{stlplus}}
 }
-

@@ -4,11 +4,22 @@
 \alias{plot_trend}
 \title{Trend Diagnostic Plot for an stlplus Object}
 \usage{
-plot_trend(x, xlab = "Time", ylab = "Trend", span = 0.3, type = c("p",
-  "l"), scales = list(y = list(relation = "free")), lwd = c(1, 1),
-  col = c("darkgray", "black", "darkgray"), layout = c(1, 2),
-  between = list(y = 0.5), strip = FALSE, strip.left = TRUE,
-  as.table = TRUE, ...)
+plot_trend(
+  x,
+  xlab = "Time",
+  ylab = "Trend",
+  span = 0.3,
+  type = c("p", "l"),
+  scales = list(y = list(relation = "free")),
+  lwd = c(1, 1),
+  col = c("darkgray", "black", "darkgray"),
+  layout = c(1, 2),
+  between = list(y = 0.5),
+  strip = FALSE,
+  strip.left = TRUE,
+  as.table = TRUE,
+  ...
+)
 }
 \arguments{
 \item{x}{object of class \code{"stlplus"}.}
@@ -32,4 +43,3 @@ R. B. Cleveland, W. S. Cleveland, J. E.  McRae, and I. Terpenning (1990) STL:  A
 \seealso{
 \code{\link{stlplus}}
 }
-

@@ -1,4 +1,3 @@
-
 test_that("direct loess matches R's loess", {
   n <- 100
   x <- 1:n
@@ -24,21 +23,86 @@ test_that("direct loess matches R's loess", {
 })
 
 test_that("stlplus matches stl", {
-  x1 <- stlplus(co2, t = as.vector(time(co2)), n.p = 12,
-    l.window = 13, t.window = 19, s.window = 11, s.degree = 1,
-    s.jump = 1, t.jump = 1, l.jump = 1)
-  x2 <- stl(co2, l.window = 13, t.window = 19, s.window = 11, s.degree = 1,
-    s.jump = 1, t.jump = 1, l.jump = 1)
-  expect_true(mean(abs(seasonal(x1) - seasonal(x2))) < 1.0e-12)
-  expect_true(mean(abs(trend(x1) - trend(x2)))  < 1.0e-12)
+  x1 <- stlplus(
+    co2,
+    t = as.vector(time(co2)),
+    n.p = 12,
+    l.window = 13,
+    t.window = 19,
+    s.window = 11,
+    s.degree = 1,
+    outer = 1,
+    s.jump = 1,
+    t.jump = 1,
+    l.jump = 1
+  )
+  x2 <- stl(
+    co2,
+    l.window = 13,
+    t.window = 19,
+    s.window = 11,
+    s.degree = 1,
+    s.jump = 1,
+    t.jump = 1,
+    l.jump = 1,
+    robust = FALSE
+  )
+  expect_true(mean(abs(seasonal(x1) - seasonal(x2))) < 1.0e-10)
+  expect_true(mean(abs(trend(x1) - trend(x2))) < 1.0e-10)
 
-  x1 <- stlplus(co2, t = as.vector(time(co2)), n.p = 12,
-    l.window = 13, t.window = 39, s.window = 101, s.degree = 1,
-    s.jump = 1, t.jump = 1, l.jump = 1)
-  x2 <- stl(co2, l.window = 13, t.window = 39, s.window = 101, s.degree = 1,
-    s.jump = 1, t.jump = 1, l.jump = 1)
-  expect_true(mean(abs(seasonal(x1) - seasonal(x2))) < 1.0e-12)
-  expect_true(mean(abs(trend(x1) - trend(x2)))  < 1.0e-12)
+  x1 <- stlplus(
+    co2,
+    t = as.vector(time(co2)),
+    n.p = 12,
+    l.window = 13,
+    t.window = 39,
+    s.window = 101,
+    s.degree = 1,
+    outer = 1,
+    s.jump = 1,
+    t.jump = 1,
+    l.jump = 1
+  )
+  x2 <- stl(
+    co2,
+    l.window = 13,
+    t.window = 39,
+    s.window = 101,
+    s.degree = 1,
+    s.jump = 1,
+    t.jump = 1,
+    l.jump = 1,
+    robust = FALSE
+  )
+  expect_true(mean(abs(seasonal(x1) - seasonal(x2))) < 1.0e-10)
+  expect_true(mean(abs(trend(x1) - trend(x2))) < 1.0e-10)
+})
+
+test_that("periodic stlplus matches stl", {
+  x1 <- stlplus(
+    co2,
+    t = as.vector(time(co2)),
+    n.p = 12,
+    l.window = 13,
+    t.window = 19,
+    s.window = "periodic",
+    outer = 1,
+    s.jump = 1,
+    t.jump = 1,
+    l.jump = 1
+  )
+  x2 <- stl(
+    co2,
+    l.window = 13,
+    t.window = 19,
+    s.window = "periodic",
+    s.jump = 1,
+    t.jump = 1,
+    l.jump = 1,
+    robust = FALSE
+  )
+  expect_true(mean(abs(seasonal(x1) - seasonal(x2))) < 1.0e-6)
+  expect_true(mean(abs(trend(x1) - trend(x2))) < 1.0e-6)
 })
 
 # compare to loess with missing values

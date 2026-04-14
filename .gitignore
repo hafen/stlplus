@@ -5,3 +5,9 @@ _ignore
 
 # Example code in package build process
 *-Ex.R
+
+# Local compiled artifacts
+src/*.o
+src/*.so
+src/symbols.rds
+src/.DS_Store

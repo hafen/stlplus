@@ -1,5 +1,5 @@
 .interp <- function(m, fits, slopes, at) {
-  if(any(is.nan(fits))) {
+  if (any(is.nan(fits))) {
     ind <- !is.nan(fits)
     c_interp(m[ind], fits[ind], slopes[ind], at)
   } else {

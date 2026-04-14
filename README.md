@@ -1,7 +1,7 @@
 ## stlplus
 
-[![Build Status](https://travis-ci.org/hafen/stlplus.svg?branch=master)](https://travis-ci.org/hafen/stlplus)
-[![CRAN](http://www.r-pkg.org/badges/version/stlplus)](https://cran.r-project.org/web/packages/stlplus/index.html)
+[![R-CMD-check](https://github.com/hafen/stlplus/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/hafen/stlplus/actions/workflows/R-CMD-check.yaml)
+[![CRAN](http://www.r-pkg.org/badges/version/stlplus)](https://CRAN.R-project.org/package=stlplus)
 ![](http://cranlogs.r-pkg.org/badges/stlplus)
 
 ![png](https://cloud.githubusercontent.com/assets/1275592/11673681/b7fce548-9dcf-11e5-8cd2-f3311b501ab9.png)
@@ -16,12 +16,12 @@ Here are some of the added features over `stl()`:
 - Frequency component smoothing beyond seasonal and trend
 - Plot methods for diagnostics
 
-For (very) experimental inference, prediction, and variance reduction at endpoints, see the [operator](http://github.com/hafen/operator) package.
+For (very) experimental inference, prediction, and variance reduction at endpoints, see the [operator](https://github.com/hafen/operator) package.
 
 ## References
 
-- [Cleveland, R. B., Cleveland, W. S., McRae, J. E., & Terpenning, I. (1990). STL: A seasonal-trend decomposition procedure based on loess. *Journal of Official Statistics*, 6(1), 3-73.](http://cs.wellesley.edu/~cs315/Papers/stl%20statistical%20model.pdf)
-- [Hafen, R. P. "Local regression models: Advancements, applications, and new methods." (2010).](http://ml.stat.purdue.edu/hafen/preprints/Hafen_thesis.pdf)
+- Cleveland, R. B., Cleveland, W. S., McRae, J. E., & Terpenning, I. (1990). STL: A seasonal-trend decomposition procedure based on loess. *Journal of Official Statistics*, 6(1), 3-73.
+- Hafen, R. P. "Local regression models: Advancements, applications, and new methods." (2010). <https://docs.lib.purdue.edu/dissertations/AAI3413793/>
 
 ## Installation
 

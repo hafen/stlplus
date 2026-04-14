@@ -38,7 +38,7 @@ getraw <- function(object) {
 #' @export
 #' @rdname accessors
 remainder.stlplus <- function(object) {
-  if(object$pars$fc.number == 0) {
+  if (object$pars$fc.number == 0) {
     object$data$remainder
   } else {
     object$fc$remainder
@@ -48,20 +48,20 @@ remainder.stlplus <- function(object) {
 #' @export
 #' @rdname accessors
 fitted.stlplus <- function(object, ...) {
-  if(object$pars$fc.number == 0) {
+  if (object$pars$fc.number == 0) {
     object$data$seasonal + object$data$trend
   } else {
-    object$data$seasonal + apply(object$fc[,1:object$pars$fc.number], 1, sum)
+    object$data$seasonal + apply(object$fc[, 1:object$pars$fc.number], 1, sum)
   }
 }
 
 #' @export
 #' @rdname accessors
 predict.stlplus <- function(object, ...) {
-  if(object$pars$fc.number == 0) {
+  if (object$pars$fc.number == 0) {
     object$data$seasonal + object$data$trend
   } else {
-    object$data$seasonal + apply(object$fc[,1:object$pars$fc.number], 1, sum)
+    object$data$seasonal + apply(object$fc[, 1:object$pars$fc.number], 1, sum)
   }
 }
 
@@ -81,23 +81,26 @@ trend.stlplus <- function(object) {
 #' @export
 #' @rdname accessors
 fc <- function(object, fcnum = 1) {
-  if(! "stlplus" %in% class(object))
+  if (!"stlplus" %in% class(object)) {
     stop("object not of class stlplus")
+  }
 
-  if(is.null(object$fc))
+  if (is.null(object$fc)) {
     stop("there are no post-trend frequency components")
+  }
 
-  if(fcnum > ncol(object$fc))
+  if (fcnum > ncol(object$fc)) {
     stop("there are not that many frequency components")
+  }
 
-  object$fc[,fcnum]
+  object$fc[, fcnum]
 }
 
 # setGeneric("time")
 #' @export
 #' @rdname accessors
 time.stlplus <- function(x, ...) {
-  if(length(x$t) == x$n) {
+  if (length(x$t) == x$n) {
     x$t
   } else {
     c(1:x$n)
@@ -109,19 +112,19 @@ time.stlplus <- function(x, ...) {
 #' @export
 #' @rdname accessors
 remainder.stl <- function(object) {
-  as.numeric(object$time.series[,3])
+  as.numeric(object$time.series[, 3])
 }
 
 #' @export
 #' @rdname accessors
 seasonal.stl <- function(object) {
-  as.numeric(object$time.series[,1])
+  as.numeric(object$time.series[, 1])
 }
 
 #' @export
 #' @rdname accessors
 trend.stl <- function(object) {
-  as.numeric(object$time.series[,2])
+  as.numeric(object$time.series[, 2])
 }
 
 # setGeneric("time")

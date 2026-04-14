@@ -3,7 +3,6 @@ Type: Package
 Title: Enhanced Seasonal Decomposition of Time Series by Loess
 Version: 0.5.2
 Date: 2026-04-06
-Author: Ryan Hafen [aut, cre]
 Authors@R: person("Ryan", "Hafen", email = "rhafen@gmail.com", role = c("aut", "cre"),
     comment = c(ORCID = "0000-0002-5516-8367"))
 Maintainer: Ryan Hafen <rhafen@gmail.com>
